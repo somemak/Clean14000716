@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clean14000716.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Clean14000716.Api.Controllers.SchoolController.Create(Clean14000716.Application.Features.School.Commands.Create.CreateSchoolCommand)">
+            <summary>
+            sd.fskldjfslkdjfaskdjf;alsdkfja;lksdfj
+            </summary>
+            <param name="createSchoolCommand"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Clean14000716.Infrastructure\Clean14000716.Infrastructure.csproj" />
+    <ProjectReference Include="..\Clean14000716.Persistence\Clean14000716.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

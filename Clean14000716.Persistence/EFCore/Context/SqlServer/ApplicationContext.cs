@@ -5,12 +5,14 @@ using Clean14000716.Common.Utilities;
 using Clean14000716.Domain;
 using Clean14000716.Domain.Entities;
 using Clean14000716.Domain.Entities.Base;
+using Clean14000716.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Clean14000716.Persistence.EFCore.Context.SqlServer
 {
-    public class ApplicationContext : DbContext, IDatabaseContext
+    public class ApplicationContext : IdentityDbContext<User, Role, int>, IDatabaseContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
@@ -92,6 +94,8 @@ namespace Clean14000716.Persistence.EFCore.Context.SqlServer
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(PersistenceAssemblyName).Assembly);
             modelBuilder.AddRestrictDeleteBehaviorConvention();
             modelBuilder.AddPluralizingTableNameConvention();

@@ -2,7 +2,7 @@
 
 namespace Clean14000716.Application.Features.School.Commands.Create
 {
-    public class CreateSchoolCommandValidator : AbstractValidator<CreateSchoolCommand>
+    public class CreateSchoolCommand0Validator : AbstractValidator<CreateSchoolCommand>
     {
         public CreateSchoolCommandValidator()
         {

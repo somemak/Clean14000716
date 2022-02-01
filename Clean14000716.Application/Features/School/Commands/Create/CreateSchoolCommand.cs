@@ -7,6 +7,7 @@ using AutoMapper;
 using Clean14000716.Application.Common.Exceptions;
 using Clean14000716.Application.Common.Interfaces.IUnitOfWork.EFCore;
 using Clean14000716.Application.Common.Interfaces.Public;
+using Clean14000716.Application.Features.School.Models;
 using Clean14000716.Application.Features.School.Queries;
 using Clean14000716.Domain.Entities;
 using Clean14000716.Domain.Enums;
@@ -26,7 +27,7 @@ namespace Clean14000716.Application.Features.School.Commands.Create
 
 
             private readonly IDatabaseContext _context;
-            private IRedisManager _redisManager;
+            private readonly IRedisManager _redisManager;
             public DbSet<Domain.Entities.School> Schools { get; }
 
             public CreateSchoolCommandHandler(IDatabaseContext context, IRedisManager redisManager)
@@ -38,15 +39,21 @@ namespace Clean14000716.Application.Features.School.Commands.Create
 
             public async Task<int> Handle(CreateSchoolCommand request, CancellationToken cancellationToken)
             {
-                List<Domain.Entities.School> schools = new List<Domain.Entities.School>();
-                for (int i = 0; i < 1000000; i++)
-                {
-                    var school = new Domain.Entities.School() { Name = request.Name, Created = DateTime.Now, CreatedBy = "ali" };
-                    schools.Add(school);
+                //List<Domain.Entities.School> schools = new List<Domain.Entities.School>();
+                //for (int i = 0; i < 10000; i++)
+                //{
+                //    var school = new Domain.Entities.School() { Name = request.Name, Created = DateTime.Now, CreatedBy = "ali" };
+                //    schools.Add(school);
                     
-                }
-                await _context.Set<Domain.Entities.School>().AddRangeAsync(schools, cancellationToken);
-                await _context.SaveChangesAsync(cancellationToken);
+                //}
+                //await _context.Set<Domain.Entities.School>().AddRangeAsync(schools, cancellationToken);
+                //await _context.SaveChangesAsync(cancellationToken);
+
+
+                var first = _context.Set<Domain.Entities.School>().Select(school => new SchoolDto()
+                {
+                    Name = school.Name,Created = school.Created
+                }).ToList();
 
 
 

@@ -27,10 +27,10 @@ namespace Clean14000716.Infrastructure.Public
 
         public RedisManger(IDistributedCache cache)
         {
-            _cache = cache;
-            using var client = new RedisClient("localhost", 6379);
-            var res = client.Custom(Commands.Keys, "*");
-            _keys = res.Children.Select(text => text.Text).ToHashSet();
+            //_cache = cache;
+            //using var client = new RedisClient("localhost", 6379);
+            //var res = client.Custom(Commands.Keys, "*");
+            //_keys = res.Children.Select(text => text.Text).ToHashSet();
         }
 
         public async Task Create<T>(string key, T data, TimeSpan? exTime = null, TimeSpan? unUseExTime = null)

@@ -65,11 +65,21 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="T:Clean14000716.Api.StartupDevelopment">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Clean14000716.Api.StartupDevelopment.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             
             </summary>
             <param name="configuration"></param>
+        </member>
+        <member name="P:Clean14000716.Api.StartupDevelopment.Configuration">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:Clean14000716.Api.StartupDevelopment.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

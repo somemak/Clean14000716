@@ -46,7 +46,7 @@ namespace Clean14000716.WebCommon.Middleware
             }
             catch (CustomApplicationException exception)
             {
-                _logger.LogError(exception, exception.Message);
+                _logger.LogError (exception, exception.Message);
                 httpStatusCode = exception.HttpStatusCode;
                 statusCode = exception.StatusCode;
 

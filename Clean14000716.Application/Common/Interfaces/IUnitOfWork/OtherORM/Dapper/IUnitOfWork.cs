@@ -7,6 +7,7 @@ namespace Clean14000716.Application.Common.Interfaces.IUnitOfWork.OtherORM.Dappe
     public interface IUnitOfWork 
     {
         public ISchoolRepository SchoolRepository { get; }
+ 
         void Commit();
     }
 }

@@ -44,19 +44,9 @@ namespace Clean14000716.Application.Features.School.Queries
 
                 //var names = new Domain.Entities.School().CreateInsertCommand(request);
 
+                //var watch = Stopwatch.StartNew();
 
-
-        
-
-
-
-
-                  var watch = Stopwatch.StartNew();
-
-
-                var list1 = await _unitOfWork.SchoolRepository.GetAllListAsync();
-
-
+                //var list1 = await _unitOfWork.SchoolRepository.GetAllListAsync();
 
                 //var conStr = "Server=.;Database=library1000;Trusted_Connection=True;";
                 //var query = @"SELECT [Id]

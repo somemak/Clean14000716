@@ -19,7 +19,7 @@ namespace Clean14000716.Persistence
         {
             foreach (var entityType in modelBuilder.Model
                 .GetEntityTypes()
-                .Where(eType => typeof(ISoftDelete).IsAssignableFrom(eType.ClrType)))
+                .Where(eType => typeof(BaseEntityWithSoftDelete).IsAssignableFrom(eType.ClrType)))
             {
                 entityType.AddSoftDeleteQueryFilter();
             }
@@ -34,7 +34,7 @@ namespace Clean14000716.Persistence
             entityData.SetQueryFilter((LambdaExpression)filter);
         }
 
-        private static LambdaExpression GetSoftDeleteFilter<TEntity>() where TEntity : ISoftDelete
+        private static LambdaExpression GetSoftDeleteFilter<TEntity>() where TEntity : BaseEntityWithSoftDelete
         {
             return (Expression<Func<TEntity, bool>>)(entity => !entity.IsDeleted);
         }

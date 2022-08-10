@@ -28,6 +28,7 @@ namespace Clean14000716.WebCommon.Controller
 
         public async Task<ActionResult> Execute<TResponse>(IRequest<TResponse> request)
         {
+ 
             //var cacheAttribute = (CachedAttribute)request.GetType().GetCustomAttributes(typeof(CachedAttribute), true).SingleOrDefault();
             //if (cacheAttribute == null) return Ok(await _mediator.Send(request));
             //var key = CacheKeyManager.GetCacheKey(request.GetType().Name, JsonConvert.SerializeObject(request));
@@ -35,6 +36,15 @@ namespace Clean14000716.WebCommon.Controller
             //if (response != null) return Ok(response);
            var response = await _mediator.Send(request);
             //await _redisManager.Create(key, response);
+ 
+            var cacheAttribute = (CachedAttribute)request.GetType().GetCustomAttributes(typeof(CachedAttribute), true).SingleOrDefault();
+            if (cacheAttribute == null) return Ok(await _mediator.Send(request));
+            var key = CacheKeyManager.GetCacheKey(request.GetType().Name, JsonConvert.SerializeObject(request));
+             response = await _redisManager.Get<TResponse>(key);
+            if (response != null) return Ok(response);
+            response = await _mediator.Send(request);
+            await _redisManager.Create(key, response);
+ 
             return Ok(response);
         }
        

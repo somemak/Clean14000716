@@ -39,7 +39,10 @@ namespace Clean14000716.Application.Features.School.Commands.Create
 
             public async Task<int> Handle(CreateSchoolCommand request, CancellationToken cancellationToken)
             {
+ 
                 throw new BadRequestException("sdfsdfsdfs");
+ 
+ 
                 //List<Domain.Entities.School> schools = new List<Domain.Entities.School>();
                 //for (int i = 0; i < 10000; i++)
                 //{

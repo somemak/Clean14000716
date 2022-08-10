@@ -24,7 +24,7 @@ namespace Clean14000716.Common.Utilities
         {
             var list = GetUpdateableProperties(type);
             var name = string.Join(",", list.ToArray());
-            name = $"INSERT INTO school({name}) VALUES( )";
+            name = $"INSERT INTO school({name}) VALUES( )"; 
             return name;
         }
     }

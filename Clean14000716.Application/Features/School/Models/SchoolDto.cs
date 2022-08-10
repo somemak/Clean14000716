@@ -8,6 +8,6 @@ namespace Clean14000716.Application.Features.School.Models
     public class SchoolDto : BaseDto<SchoolDto, Domain.Entities.School>
     {
         public string Name { get; set; }
-        public DateTime Created { get; set; }
+        public DateTimeOffset Created { get; set; }
     }
 }
